@@ -1,4 +1,4 @@
-package br.com.aluno;
+package br.com.alunos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
