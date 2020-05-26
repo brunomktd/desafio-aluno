@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class AlunoRequest {
     @NotNull @NotEmpty
-    @Length(min = 5)
+    @Length(min = 3)
     private String nome;
     @NotNull @Min(0)
     private Integer idade;

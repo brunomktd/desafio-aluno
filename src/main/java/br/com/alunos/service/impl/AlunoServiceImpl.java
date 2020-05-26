@@ -56,10 +56,12 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Override
     public AlunoServiceDto atualizarAluno(Long id, AlunoRequest alunoRequest) {
-        boolean alunoExists = alunoRepository.existsById(id);
+        Optional<Aluno> alunoExists = alunoRepository.findById(id);
 
-        if(alunoExists){
-            var aluno = mapperUtils.converterObjeto(alunoRequest, Aluno.class);
+        if(alunoExists.isPresent()){
+            var aluno = alunoExists.get();
+            aluno.setNome(alunoRequest.getNome());
+            aluno.setIdade(alunoRequest.getIdade());
             alunoRepository.save(aluno);
             return mapperUtils.converterObjeto(aluno, AlunoServiceDto.class);
         } else {
